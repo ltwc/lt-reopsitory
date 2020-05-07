@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="css/common.css" rel="stylesheet" type="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/WebCalendar.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+<!-- main begin-->
+  <div class="sale">
+    <h1 class="lf">在线拍卖系统</h1>
+    <div class="logout right"><a th:href="logout" title="注销">注销</a></div>
+  </div>
+
+  <div class="forms">
+      <form action="showAuction" method="post" id="queryForm">
+          <input type="hidden" name="pageNum" id="pageNo"/>
+        <label for="name">名称</label>
+        <input name="auctionname" type="text" th:value="${condition.getAuctionname()}" class="nwinput" id="name"/>
+        <label for="names">描述</label>
+        <input name="auctiondesc" type="text" th:value="${condition.getAuctiondesc()}" id="names" class="nwinput"/>
+        <label for="time">开始时间</label>
+        <input name="auctionstarttime" type="text" id="time" class="nwinput"
+            readonly="readonly" onclick="selectDate(this,'yyyy-MM-dd hh:mm:ss')"
+            th:value="${#dates.format(condition.getAuctionstarttime(),'yyyy-MM-dd hh:mm:ss')}"/>
+        <label for="end-time">结束时间</label>
+        <input name="auctionendtime" type="text" id="end-time" class="nwinput"
+               readonly="readonly" onclick="selectDate(this,'yyyy-MM-dd hh:mm:ss')"
+            th:value="${#dates.format(condition.getAuctionendtime(),'yyyy-MM-dd hh:mm:ss')}"/>
+        <label for="price">起拍价</label>
+        <input name="auctionstartprice" type="text" id="price" class="nwinput"
+            th:value="${condition.getAuctionstartprice()}"/>
+        <input name="" type="button"  value="查询" onclick="this.form.submit()" class="spbg buttombg f14  sale-buttom"/>
+    </form>
+<!--    <input type="button"  value="发布" class="spbg buttombg f14  sale-buttom buttomb"/>-->
+  </div>
+    <div th:if="${user.userisadmin==1}">
+        <input type="button" onclick="location='toAdd'" value="发布" class="spbg buttombg f14 sale-buttom buttom">
+    </div>
+  <div class="items">
+      <ul class="rows even strong">
+        <li >名称</li>
+        <li class="list-wd">描述</li>
+        <li>开始时间</li>
+        <li>结束时间</li>
+        <li>起拍价</li>
+        <li class="borderno">操作</li>
+      </ul>
+      <ul th:each="auction,state:${auctionList}" th:class="${state.odd?'rows':'rows even'}">
+        <li th:text="${auction.auctionname}"></li>
+        <li th:text="${auction.auctiondesc}" class="list-wd"></li>
+        <li th:text="${#dates.format(auction.auctionstarttime)}"></li>
+        <li th:text="${#dates.format(auction.auctionendtime)}"></li>
+        <li th:text="${auction.auctionstartprice}"></li>
+        <li class="borderno red">
+            <div th:if="${user.userisadmin==1}">
+                <a href="#" title="竞拍" onclick="dele();">修改</a>|
+                <a href="#" title="竞拍" onclick="abc();">删除</a>
+            </div>
+            <div th:if="${user.userisadmin==0}">
+                <a th:href="@{/toAuctionDetail/}+${auction.auctionid}" title="竞拍" onclick="abc();">竞拍</a>
+            </div>
+
+        </li>
+      </ul>
+
+<!--      <div class="page">-->
+<!--        <a th:href="@{showAuction(pageNum=1)}" title="">首页</a>-->
+<!--        <a th:href="@{showAuction(pageNum=${pageInfo.prePage})}" >上一页</a>-->
+<!--        <a th:href="@{showAuction(pageNum=${pageInfo.nextPage})}" >下一页</a>-->
+<!--        <a th:href="@{showAuction(pageNum=#{pageInfo.pageSize})}">尾页</a>-->
+<!--          -->
+<!--          总记录数为<span th:text="${pageInfo.total}"></span>，-->
+<!--           总页数为 <span th:text="${pageInfo.pageSize}"></span>-->
+<!--           当前页为 <span th:text="${pageInfo.pageNum}"></span>-->
+<!--      </div>-->
+
+      <div class="page">
+          <a href="javascript:jumpPage(1)" title="">首页</a>
+          <a th:href="'javascript:jumpPage('+${pageInfo.prePage}+')'" >上一页</a>
+          <a th:href="'javascript:jumpPage('+${pageInfo.nextPage}+')'" >下一页</a>
+          <a th:href="'javascript:junmPage{'+${pageInfo.pageSize}+'}'">尾页</a>
+
+          总记录数为<span th:text="${pageInfo.total}"></span>，
+          总页数为 <span th:text="${pageInfo.pages}"></span>
+          当前页为 <span th:text="${pageInfo.pageNum}"></span>
+      </div>
+
+  </div>
+  <script>
+   // function abc(){
+	//
+	//    if(confirm("你真的确认要删除吗？请确认")){
+	//
+	// 	   return true;
+	// 	 }
+	// 	 else{
+	// 		 return false;
+	// 		 }
+	//
+	//    };
+	//    function dele(){
+	// 	   if(confirm("你真的确认要修改吗？请确认")){
+	// 		   return true;
+	// 		   }
+	// 		   else{
+	// 			   return false;
+	// 			   }
+	// 	   }
+   //
+	// 	   function jumpPage(page_no) {
+   //              document.getElementById("pageNo").value=page_no;
+   //              document.getElementById("queryForm").submit();
+   //         }
+  </script>
+<!-- main end-->
+</div>
+</body>
+</html>
