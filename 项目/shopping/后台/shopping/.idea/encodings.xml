@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/shopping-content-ms" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-content-ms/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-content-ms/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-minio" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-minio/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-page-ms" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-page-ms/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-parent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-parent/shopping-goods-ms" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-parent/shopping-goods-ms/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-parent/shopping-mapper" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-parent/shopping-mapper/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-parent/shopping-pojo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-parent/shopping-pojo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-parent/shopping-zuul" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-parent/shopping-zuul/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-parent/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-parent/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-search-ms" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-search-ms/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-sellergoods-ms" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-sellergoods-ms/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shopping-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-activitiMq" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-activitiMq/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-activitiMq/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-solr" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-solr/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-solr/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springboot/jwt-parent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springboot/jwt-parent/jwt-autj-center" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springboot/jwt-parent/jwt-autj-center/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springboot/jwt-parent/jwt-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springboot/jwt-parent/jwt-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springboot/jwt-parent/jwt-gateway-" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springboot/jwt-parent/jwt-gateway-/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springboot/jwt-parent/jwt-mapper" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springboot/jwt-parent/jwt-mapper/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springboot/jwt-parent/jwt-mapper/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springboot/jwt-parent/jwt-microservice" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springboot/jwt-parent/jwt-microservice/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springboot/jwt-parent/jwt-pojo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springboot/jwt-parent/jwt-pojo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springboot/jwt-parent/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springboot/jwt-parent/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springboot/springboot-activitiMQ-sender" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springboot/springboot-activitiMQ-sender/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springboot/springboot-jwt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springboot/springboot-jwt/jwt-gateway" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springboot/springboot-jwt/jwt-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springboot/springboot-jwt/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springboot/springboot-jwt/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springboot/springboot-springsecurity" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springboot/springboot-springsecurity/src/main/java" charset="UTF-8" />
+  </component>
+</project>

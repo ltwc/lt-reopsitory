@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.web.oa.mapper.SysPermissionMapperCustom" >
+  
+  
+  <!-- 根据用户名查询查询权限 -->
+  <select id="findPermissionListByUserName" parameterType="String" resultType="com.web.oa.pojo.SysPermission">
+	  SELECT 
+	  * 
+	FROM
+	  sys_permission 
+	WHERE TYPE like '%permission%' 
+	  AND id IN 
+	  (SELECT 
+	    sys_permission_id 
+	  FROM
+	    sys_role_permission 
+	  WHERE sys_role_id IN 
+	    (SELECT 
+	      sys_role_id 
+	    FROM
+	      sys_user_role 
+	    WHERE sys_user_id = #{name}))
+  </select>
+  
+   <!-- 根据用户名查询菜单 -->
+  <select id="findMenuListByUserName"  parameterType="String" resultType="com.web.oa.pojo.SysPermission">
+  SELECT 
+	  * 
+	FROM
+	  sys_permission 
+	WHERE TYPE = 'menu'
+	  AND id IN 
+	  (SELECT 
+	    sys_permission_id 
+	  FROM
+	    sys_role_permission 
+	  WHERE sys_role_id IN 
+	    (SELECT 
+	      sys_role_id 
+	    FROM
+	      sys_user_role 
+	    WHERE sys_user_id = #{name}))
+  </select>
+  
+  
+  
+   <!-- 查询菜单 -->
+  <resultMap type="com.web.oa.pojo.TreeMenu" id="menuListResultMap">
+  		<id column="id" property="id"/>
+  		<id column="name" property="name"/>
+  		
+  		<!--对方，二级菜单  -->
+  		<collection property="children" select="getSubMenu" column="id">
+  			    <id column="id" property="id" jdbcType="BIGINT" />
+			    <result column="name" property="name" jdbcType="VARCHAR" />
+			    <result column="type" property="type" jdbcType="VARCHAR" />
+			    <result column="url" property="url" jdbcType="VARCHAR" />
+			    <result column="percode" property="percode" jdbcType="VARCHAR" />
+			    <result column="parentid" property="parentid" jdbcType="BIGINT" />
+			    <result column="parentids" property="parentids" jdbcType="VARCHAR" />
+			    <result column="sortstring" property="sortstring" jdbcType="VARCHAR" />
+			    <result column="available" property="available" jdbcType="CHAR" />
+  		</collection>
+  		
+  </resultMap>
+  
+  <!-- 查询菜单 -->
+  <select id="findMenuList" resultMap="menuListResultMap">
+  		select * from sys_permission  where parentid = 1
+  </select>
+  
+  <!-- 查询二级菜单 -->
+   <select id="getSubMenu" resultType="com.web.oa.pojo.SysPermission">
+		select * from sys_permission where type like '%menu%' and parentid = #{id}
+   </select>
+   
+   
+   
+   <!-- 查询菜单 -->
+  <resultMap type="com.web.oa.pojo.TreeMenu" id="allMenuListResultMap">
+  		<id column="id" property="id"/>
+  		<id column="name" property="name"/>
+  		
+  		<!--对方，二级所有菜单  -->
+  		<collection property="children" select="getAllSubMenu" column="id">
+  			    <id column="id" property="id" jdbcType="BIGINT" />
+			    <result column="name" property="name" jdbcType="VARCHAR" />
+			    <result column="type" property="type" jdbcType="VARCHAR" />
+			    <result column="url" property="url" jdbcType="VARCHAR" />
+			    <result column="percode" property="percode" jdbcType="VARCHAR" />
+			    <result column="parentid" property="parentid" jdbcType="BIGINT" />
+			    <result column="parentids" property="parentids" jdbcType="VARCHAR" />
+			    <result column="sortstring" property="sortstring" jdbcType="VARCHAR" />
+			    <result column="available" property="available" jdbcType="CHAR" />
+  		</collection>
+  		
+  </resultMap>
+   
+  
+  
+  <!-- 查询菜单 -->
+  <select id="findAllMenuList" resultMap="allMenuListResultMap">
+  		select * from sys_permission  where parentid = 1
+  </select>
+  
+  <!-- 查询二级所有菜单 -->
+   <select id="getAllSubMenu" resultType="com.web.oa.pojo.SysPermission">
+		select * from sys_permission  where parentid = #{id}
+   </select>
+  
+  
+  
+  <!-- 查找所有的角色 -->
+  <select id="findAllSysRole" resultType="com.web.oa.pojo.SysRole">
+		 select sys_role.* from sys_role where available='1'
+  </select>
+  
+  
+  <!-- 查询角色对应的权限 -->
+  <select id="findPermissionListByRoleId" parameterType="String" resultType="com.web.oa.pojo.SysPermission">
+  	SELECT p.* FROM sys_permission p ,
+		(SELECT * FROM sys_role_permission WHERE  sys_role_id= #{id}) s
+		WHERE s.sys_permission_id = p.id
+  </select>
+  
+  
+</mapper>
